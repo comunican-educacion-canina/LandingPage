@@ -139,6 +139,62 @@
     font-size: 48px;
     margin-bottom: 16px;
   }
+
+  .checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    text-align: left;
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.4;
+  }
+  .checkbox-row input[type="checkbox"] {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: #894b5d;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .checkbox-row label {
+    cursor: pointer;
+  }
+  details.terminos {
+    margin-top: -4px;
+  }
+  details.terminos summary {
+    font-size: 12px;
+    color: #894b5d;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+  details.terminos summary::-webkit-details-marker {
+    display: none;
+  }
+  details.terminos summary::before {
+    content: "Ver términos y condiciones ▸";
+  }
+  details.terminos[open] summary::before {
+    content: "Ocultar términos y condiciones ▾";
+  }
+  details.terminos .terminos-texto {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.5;
+    text-align: left;
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 8px;
+  }
+  details.terminos .terminos-texto p {
+    margin-bottom: 8px;
+  }
+  details.terminos .terminos-texto p:last-child {
+    margin-bottom: 0;
+  }
 </style>
 </head>
 <body>
@@ -164,6 +220,21 @@
       <form id="leadForm">
         <input type="text" name="nombre" placeholder="Tu nombre" required>
         <input type="email" name="email" placeholder="Tu correo electrónico" required>
+
+        <div class="checkbox-row">
+          <input type="checkbox" name="terminos" id="terminos" required>
+          <label for="terminos">He leído y acepto los términos y condiciones</label>
+        </div>
+
+        <details class="terminos">
+          <summary></summary>
+          <div class="terminos-texto">
+            <p><strong>Uso del documento:</strong> el documento que recibirás por correo es de uso personal y gratuito. No está permitido compartirlo, redistribuirlo, revenderlo ni utilizarlo, en todo o en parte, con fines comerciales o lucrativos sin autorización previa por escrito.</p>
+            <p><strong>Propiedad intelectual:</strong> todos los derechos de autor y el contenido del documento pertenecen a ComuniCAN. El envío del documento no transfiere ningún derecho de propiedad intelectual sobre el material.</p>
+            <p><strong>Tus datos:</strong> tu correo electrónico se usa únicamente para enviarte este documento y, si lo deseas, comunicaciones relacionadas. No compartimos ni vendemos tus datos con terceros. Puedes solicitar la baja o eliminación de tus datos cuando quieras escribiendo a comunican.educacion.canina@gmail.com.</p>
+          </div>
+        </details>
+
         <button type="submit" id="submitBtn">Enviarme la guía gratis</button>
       </form>
 
