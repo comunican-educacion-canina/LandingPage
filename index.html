@@ -28,9 +28,15 @@
     background: linear-gradient(135deg, #894b5d 0%, #e3c1be 100%);
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 20px;
+    padding: 78px 20px 40px;
+  }
+  /* Si la tarjeta cabe entera, se centra; si no, se apoya arriba */
+  .card-wrap {
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
   }
   .card {
     background: #ffffff;
@@ -227,13 +233,26 @@
   /* Información básica de protección de datos (primera capa) */
   .rgpd {
     text-align: left;
+    margin-top: 16px;
+  }
+  .rgpd > summary {
+    font-size: 11px;
+    color: #9ca3af;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+  }
+  .rgpd > summary::-webkit-details-marker { display: none; }
+  .rgpd > summary::before { content: "Información básica sobre protección de datos ▸"; }
+  .rgpd[open] > summary::before { content: "Ocultar información sobre protección de datos ▾"; }
+  .rgpd .rgpd-texto {
     font-size: 11px;
     line-height: 1.5;
     color: #9ca3af;
     background: #f9fafb;
     border-radius: 8px;
     padding: 12px;
-    margin-top: 18px;
+    margin-top: 8px;
   }
   .rgpd strong { color: #6b7280; }
   .rgpd a { color: #894b5d; font-weight: 600; }
@@ -262,6 +281,7 @@
 </head>
 <body>
 
+  <div class="card-wrap">
   <div class="card">
 
     <div class="logo-wrap">
@@ -317,8 +337,9 @@
 
       <div class="mensaje" id="mensajeError">Algo salió mal. Inténtalo de nuevo.</div>
 
-      <div class="rgpd">
-        <strong>Información básica sobre protección de datos.</strong>
+      <details class="rgpd">
+        <summary></summary>
+        <div class="rgpd-texto">
         <strong>Responsable:</strong> Raúl Diego Navarro (ComuniCAN).
         <strong>Finalidad:</strong> enviarte la guía solicitada y, si lo autorizas, contenidos sobre educación canina.
         <strong>Legitimación:</strong> tu consentimiento.
@@ -326,7 +347,8 @@
         <strong>Conservación:</strong> hasta que solicites la baja o retires tu consentimiento.
         <strong>Derechos:</strong> acceso, rectificación, supresión, oposición, portabilidad, limitación y retirada del consentimiento escribiendo a comunican.educacion.canina@gmail.com, así como reclamar ante la AEPD.
         <a href="/privacidad.html" target="_blank" rel="noopener">Información adicional</a>.
-      </div>
+        </div>
+      </details>
 
       <p class="nota">No vendemos tu correo ni lo cedemos a terceros. Puedes darte de baja cuando quieras.</p>
 
@@ -342,6 +364,7 @@
       <p class="subtitle">Te hemos enviado un correo para que confirmes tu dirección. En cuanto pulses el enlace de confirmación, recibirás la guía.<br><br>Si no lo ves en unos minutos, revisa las carpetas de spam o promociones.</p>
     </div>
 
+  </div>
   </div>
 
 <script>
